@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/templates/styles.css"/>
+    <title>New Team</title>
+</head>
+<body>
+    <h1>Create new team</h1>
+    <form id="frmNewTeam"
+          method="post"
+          action="/teams/new"
+          >
+
+        <div id="local-team-data">
+            <h2>Team data</h2>
+        <label for="edName">Local team name</label>
+        <input type="text" id="edName" name="edName"/>
+        <br>
+        <label for="edAbbreviation">Local team abbreviation</label>
+        <input type="text" id="edAbbreviation" name="edAbbreviation"/>
+            <br>
+        <label for="edDescription">Local team description</label><br>
+            <textarea id="edDescription" name="edDescription"></textarea>
+        <br>
+        <label for="edCreationDate">Local team creation date</label>
+        <input type="number" id="edCreationDate" name="edCreationDate"/>
+        </div>
+
+        <p><input type="submit" value="Create"/></p>
+    </form>
+</body>
+</html>

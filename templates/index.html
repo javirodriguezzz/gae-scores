@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/templates/styles.css"/>
+    <title>GAE Scores</title>
+</head>
+<header>
+    <div id="imgLogo">
+    <img class="img-logo" src="/res/logo.png"/>
+    </div>
+</header>
+<body>
+    <p id="login">
+        Action:
+        <a href="{{login_logout_url}}">
+        {% if usr %}logout{% else %}login{% endif %}
+        </a>
+    </p>
+    <h1>All Teams</h1>
+    {% if teams.count() > 0 %}
+        <ul>
+            {% for team in teams %}
+                <li>
+                    (<a href="/teams/list?id={{team.key.urlsafe()}}">Detail</a>)
+                    (<a href="/teams/scores?id={{team.key.urlsafe()}}">Latest scores</a>)
+                    (<a href="/teams/delete?id={{team.key.urlsafe()}}">Delete</a>)
+                    <b>{{team.abbreviation}}</b> - {{team.name}}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p><b>No teams.</b></p>
+    {% endif %}
+
+    <a href="/teams/new">New team</a>
+</body>
+<footer>
+
+</footer>
+</html>

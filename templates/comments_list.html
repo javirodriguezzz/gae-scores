@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/templates/styles.css"/>
+    <title>Title</title>
+</head>
+<body>
+    <h2>Recent comments</h2>
+    {% if comments.count() > 0 %}
+    {% for comment in comments %}
+    <div id="dvComment">
+    <b>{{comment.author}}</b> at {{comment.creation_date}} said: <br>
+    {{comment.text}}
+    <br/>
+    </div>
+    {% endfor %}
+    {% else %}
+    <p><b>No recent comments.</b></p>
+    {% endif %}
+
+    <p>
+        <a href="/comment/new?id={{ score.key.urlsafe() }}">Type comment</a>
+    </p>
+</body>
+</html>

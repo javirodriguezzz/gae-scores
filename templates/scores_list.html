@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/templates/styles.css"/>
+    <title>Scores</title>
+</head>
+<body>
+    <h2>Recent scores of {{team.name}}</h2>
+    {% if scores.count() > 0 %}
+    {% for score in scores %}
+    (<a href="/scores/delete?id={{ score.key.urlsafe() }}">Delete</a>)
+    (<a href="/scores/comments?id={{ score.key.urlsafe() }}">View comments</a>)
+    <b>{{score.team1_abbr}}</b>  {{score.team1_score}} - {{score.team2_score}}  <b>{{score.team2_abbr}}</b>
+    <br/>
+    {% endfor %}
+    {% else %}
+    <p><b>No recent scores.</b></p>
+    {% endif %}
+
+    <p>
+        <a href="/scores/new?id={{ team.key.urlsafe() }}">New score</a>
+    </p>
+
+</body>
+</html>
