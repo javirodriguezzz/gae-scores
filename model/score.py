@@ -30,3 +30,12 @@ class Score(ndb.Model):
     def recupera_scores_team(abrv):
         scores = Score.query(ndb.OR(Score.team1_abbr == abrv, Score.team2_abbr == abrv))
         return scores
+
+    @staticmethod
+    def recupera(req):
+        try:
+            id = req.GET["id"]
+        except KeyError:
+            id = ""
+
+        return ndb.Key(urlsafe=id).get()

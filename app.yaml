@@ -26,6 +26,9 @@ handlers:
 - url: /scores/comments
   script: handlers.list_comments.app
 
+- url: /scores/delete
+  script: handlers.delete_score.app
+
 - url: /teams/list
   script: handlers.list_team.app
 
