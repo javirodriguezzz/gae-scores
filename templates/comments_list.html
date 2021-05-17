@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/templates/styles.css"/>
-    <title>Title</title>
+    <title>Comments</title>
 </head>
 <body>
-    <h2>Recent comments</h2>
+    <h2>Recent comments for {{score.team1_abbr}} - {{score.team2_abbr}}</h2>
     {% if comments.count() > 0 %}
     {% for comment in comments %}
     <div id="dvComment">
@@ -20,7 +20,10 @@
     {% endif %}
 
     <p>
-        <a href="/comment/new?id={{ score.key.urlsafe() }}">Type comment</a>
+        <a href="/comment/new?score={{ score.key.urlsafe() }}">Type comment</a>
+    </p>
+    <p>
+        <a href="/">Back</a>
     </p>
 </body>
 </html>

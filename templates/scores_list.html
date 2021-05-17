@@ -10,7 +10,7 @@
     {% if scores.count() > 0 %}
     {% for score in scores %}
     (<a href="/scores/delete?id={{ score.key.urlsafe() }}">Delete</a>)
-    (<a href="/scores/comments?id={{ score.key.urlsafe() }}">View comments</a>)
+    (<a href="/scores/comments?score={{ score.key.urlsafe() }}">View comments</a>)
     <b>{{score.team1_abbr}}</b>  {{score.team1_score}} - {{score.team2_score}}  <b>{{score.team2_abbr}}</b>
     <br/>
     {% endfor %}

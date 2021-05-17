@@ -12,7 +12,7 @@ class Comment(ndb.Model):
     @staticmethod
     def recupera_para(req):
         try:
-            id_score = req.GET["id"]
+            id_score = req.GET["score"]
         except KeyError:
             id_score = ""
 
